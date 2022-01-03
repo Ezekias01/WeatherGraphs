@@ -1,14 +1,14 @@
 package com.example.demo.springboot.application.model;
-
+import java.util.Arraylist;
 public class Punto {
 	private double lat;
 	private double longit;
 	private ArrayList<Misura> Misure;
 	
-	public Punto(double lat,double longit,Misura misura) {
+	public Punto(double lat,double longit) {
 		this.lat=lat;
 		this.longit=longit;
-		this.misura=misura;
+		this.Misure=new Arraylist<Misura>();
 	}
 
 	public double getLat() {
