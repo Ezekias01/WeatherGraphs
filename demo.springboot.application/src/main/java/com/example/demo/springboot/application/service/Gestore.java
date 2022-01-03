@@ -1,13 +1,18 @@
 package com.example.demo.springboot.application.service;
+import java.util.ArrayList;
+
 import org.json.*;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.springboot.application.model.Citta;
 
-
+@Component
 public interface Gestore {
-	public StringBuffer Avvio(String collegamento);
 	
-	public Citta ottieniCitta(StringBuffer x);
+	public ArrayList<Citta> getElencoCitta();
+	
+	public Citta parseCitta(JSONObject ci);
 
-	public void ToString(Citta Citta);
+	public void setList();
+	
 }
