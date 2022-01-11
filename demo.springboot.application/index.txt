@@ -1,0 +1,47 @@
+[
+
+{
+
+"days": [
+{
+      "id": 1,
+      "name": "Giovedi"
+},
+{
+      "id": 2,
+      "name": "Venerdi"
+},
+{
+      "id": 3,
+      "name": "Sabato"
+},
+{
+      "id": 4,
+      "name": "Domenica"
+}
+
+]
+
+},
+
+{
+
+"timeslots": [
+{
+      "id": 1,
+      "description": "6-9"
+},
+{
+      "id": 2,
+      "description": "12-15"
+},
+{
+      "id": 3,
+      "description": "18-21"
+}
+
+]
+
+}
+
+]

@@ -7,8 +7,5 @@ public class Temperatura {
 	}
 	public double getValore() {
 		return valore;
-	}
-	
-	
-	
+	}	
 }
