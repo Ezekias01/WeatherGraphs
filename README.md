@@ -1,5 +1,5 @@
 
-## PROGETTO WEATHER GRAPHS
+# PROGETTO WEATHER GRAPHS
 
 Il progetto Weather Graphs si propone di fornire uno strumento mediante il quale,
 date delle città, eseguire delle statistiche riguardanti una serie di parametri metereologici
@@ -10,10 +10,12 @@ I suddetti parametri metereologici sono:
 - temperatura massima
 - temperatura minima
 - umidità
+
 Le statistiche sono state eseguite attenendosi ad un preciso criterio di filtraggio e sono le seguenti:
 - media 
 - varianza
 - deviazione standard
+
 ## Indice
 - Let's start
 - Endpoints
@@ -30,16 +32,20 @@ Le statistiche sono state eseguite attenendosi ad un preciso criterio di filtrag
 - Strumenti utilizzati
 - Autori
 ## Let's start
-Dopo aver scaricato un opportuno ambiente di sviluppo java (ad esempio intellij o eclipse) per la 
-visualizzazione del codice è possibile clonare la repository GitHub
-(attraverso il comando "clone a repository", situato nella show view della
-finestra Git Repositories). Ora è possibile importare il progetto attraverso il comando 
-"Import Project" che compare cliccando con tasto destro sulla repository clonata,
-nella finestra a comparsa. Quando il programma è pronto, è possibile eseguirlo cliccando 
-con tasto destro sul progetto importato(situato nel Package Explorer).
-Infine nella finestra a comparsa si troverà il comando "Run as", eseguire quindi il programma 
-come "Spring boot App".
-Ora l'applicazione Web Service sarà attiva e in ascolto alla porta http://localhost:8080.
+Per iniziare, scaricare ed installare un opportuno ambiente di sviluppo Java come Intellij o Eclipse.
+Una volta completata l’operazione sarà possibile, seguendo una serie di step, importare il progetto nel proprio ambiente di sviluppo.
+
+PASSAGGI:
+1) Copiare l’URL della repository GITHUB 
+2) Aprire Eclipse e selezionare Import   Projects from Git (with smart import)
+3) Utilizzare l’opzione CLONE URI nel Git import wizard e premere Next
+4) Confermare l’URI, l’HOST e i parametri del percorso della Repository e premere Next
+5) Scegliere il brench da clonare dalla repository remota e premere Next
+6) Confermare la directory nella quale clonare la repository e premere Next
+7) Scegliere il progetto da importare in Eclipse da Github premere Next
+
+In questo modo l’importazione del progetto sarà completata e sarà possibile lanciare l’applicazione aprendo il main dell’Application e premendo Run as per poi selezionare “springboot application”.
+Le varie rotte saranno utilizzabili tramite l’ausilio del http://localhost:8080/ al quale verranno aggiunti i filtri e i parametri che successivamente verranno illustrati.
 ## Endpoints
 | Tipo | Rotta     | Descrizione                |
 | :-------- | :------- | :------------------------- |
@@ -68,7 +74,7 @@ Ora l'applicazione Web Service sarà attiva e in ascolto alla porta http://local
 
 ![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Citta.PNG?raw=true)
 
-#### Get JSON contente la codifica delle date e delle fascie orarie
+#### Get JSON contenente la codifica delle date e delle fascie orarie
 
 ```http
   GET localhost:8080/index
@@ -169,12 +175,87 @@ Ora l'applicazione Web Service sarà attiva e in ascolto alla porta http://local
 ```
 ![This is an image](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/error.PNG?raw=true)
 
-## Uml
 ## Packages
+
+### Chart 
+
+#### Chart
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Chart.png?raw=true)
+
+### Controller
+
+#### ErrorePersonalizzato
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/ErrorePersonalizzato.png?raw=true)
+
+#### SimpleRestController
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/SimpleRestController.png?raw=true)
+
+### Exceptions
+
+#### IllegalTimeSlotException
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/IllegalTimeSlotException.png?raw=true)
+
+#### NotFoundCityException
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/NotFoundCityException.png?raw=true)
+
+### Filter&Stats 
+
+#### Filter
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Filter.png?raw=true)
+
+#### FilterImpl
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/FilterImpl.png?raw=true)
+
+#### Stats
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Stats.png?raw=true)
+
+#### StatsImpl
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/StatsImpl.png?raw=true)
+
+### Model
+
+#### Citta
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/ClasseCitta.png?raw=true)
+
+#### Misura
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Misura.png?raw=true)
+
+#### Punto
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Punto.png?raw=true)
+
+#### Temperatura
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Temperatura.png?raw=true)
+
+#### Weather
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Weather.png?raw=true)
+
+### Service
+
+#### Gestore
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/Gestore.png?raw=true)
+
+#### GestoreImpl
+
+![](https://github.com/Piz01/ProgettoEsame/blob/main/immagini_progetto/GestoreImpl.png?raw=true)
+
 ## Strumenti utilizzati
 - Eclipse
 - Springboot
--
 ## Autori
 - Ezekias Mastaki
 - Andrea Pizzuto
