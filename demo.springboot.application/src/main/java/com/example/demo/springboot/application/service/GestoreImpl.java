@@ -23,6 +23,7 @@ import com.example.demo.springboot.application.exceptions.NotFoundCityException;
  * @author Andrea Pizzuto
  *
  */
+
 @Component
 @Qualifier("GestoreImpl")
 public class GestoreImpl implements Gestore{
@@ -33,6 +34,7 @@ public class GestoreImpl implements Gestore{
 		this.setList();
 	}
 
+
 /**
  * Il metodo setList legge il file e, tramite le sue righe, costruisce un contenuto risposta di tipo StringBuffer.
  * Il contenuto della risposta viene trasfomato in un JSONArray e ciascuno dei suoi elementi viene 
@@ -42,9 +44,11 @@ public class GestoreImpl implements Gestore{
 	public void setList() {
 		JSONArray cityList;
 		try { 
+
 			String record;											
 			StringBuffer contenutoRisposta = new StringBuffer();
 			BufferedReader LEGGI = new BufferedReader(new InputStreamReader(new FileInputStream("citta.json"), "UTF-8")); 
+
 			while((record=LEGGI.readLine())!=null) {
 				contenutoRisposta.append(record);
 			}
@@ -170,6 +174,7 @@ public class GestoreImpl implements Gestore{
 		}
 		else {
 			throw new  NotFoundCityException("Id not found");
+
 		}
 		
 	}

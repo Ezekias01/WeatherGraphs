@@ -35,3 +35,4 @@ public class Weather {
 		return description;
 	}	
 }
+

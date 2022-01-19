@@ -5,6 +5,7 @@ import org.json.*;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.springboot.application.model.Citta;
+
 import com.example.demo.springboot.application.exceptions.NotFoundCityException;
 /**
  * L'interfaccia Gestore prevede cinque metodi astratti implementati in GestoreImpl.
@@ -24,3 +25,4 @@ public interface Gestore {
 	
 	public Citta cercaCitta(int id) throws NotFoundCityException;
 }
+

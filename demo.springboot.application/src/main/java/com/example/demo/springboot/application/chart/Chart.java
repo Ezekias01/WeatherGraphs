@@ -33,6 +33,7 @@ public class Chart {
 	}
 	catch(NullPointerException e) {e.getLocalizedMessage(); }
 	}
+
 /**
  * Il metodo CreaLineChart dati un titolo, l'etichetta dell'asse x,l'etichetta dell'asse y e il dataset costruisce 
  * un grafico a linee.
@@ -59,6 +60,7 @@ public class Chart {
 		}
 		catch(NullPointerException e) {e.getLocalizedMessage(); }
 	}
+  
 /**
  * Il metodo getChart restituisce il grafico.	
  * @return jchart

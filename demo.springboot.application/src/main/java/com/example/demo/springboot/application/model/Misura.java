@@ -9,17 +9,21 @@ package com.example.demo.springboot.application.model;
 public class Misura {
 
 	private long dt;
+
 	private String dttxt;
+
 	private int humidity;
 	private	Temperatura tAttuale;
 	private	Temperatura tPercepita; 
 	private	Temperatura tMax;
 	private	Temperatura tMin;
 	private	Weather weather;
+
 	
 	public Misura(long dt, String dttxt, int humidity, Temperatura tAttuale, Temperatura tPercepita, Temperatura tMax, Temperatura tMin, Weather weather) {
 		this.dt = dt;
 		this.dttxt=dttxt;
+
 		this.humidity = humidity;
 		this.tAttuale = tAttuale;
 		this.tPercepita = tPercepita;
@@ -27,6 +31,7 @@ public class Misura {
 		this.tMin = tMin;
 		this.weather = weather;
 	}
+
 /**
  * Il metodo restituisce il date time in codice UTC
  * @return dt
@@ -84,3 +89,4 @@ public class Misura {
 	    return dttxt;
 	}
 }
+

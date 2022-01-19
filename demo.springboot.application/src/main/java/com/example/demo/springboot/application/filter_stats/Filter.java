@@ -1,10 +1,11 @@
 package com.example.demo.springboot.application.filter_stats;
 
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import com.example.demo.springboot.application.exceptions.IllegalTimeSlotException;
 import com.example.demo.springboot.application.model.Citta;
 import com.example.demo.springboot.application.model.Misura;
+
 /**
  * L'interfaccia Filter prevede due metodi astratti implementati in FilterImpl.
  * I suddetti metodi si occupano di costruire il range temporale nel quale
@@ -21,3 +22,4 @@ public interface Filter {
 	
 	public ArrayList<Misura> Ricerca(Citta citta) throws IllegalTimeSlotException;
 }
+

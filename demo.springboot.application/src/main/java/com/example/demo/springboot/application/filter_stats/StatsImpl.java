@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.springboot.application.model.Citta;
 import com.example.demo.springboot.application.exceptions.IllegalTimeSlotException;
+
 /**
  * La classe StatsImpl specifica i metodi descritti dall'interfaccia Stats.
  * @author Andrea Pizzuto
@@ -28,6 +29,7 @@ public class StatsImpl implements Stats {
  * @throws ArithmeticException
  */
 	public double tempMediaEff(FilterImpl filtro, Citta citta) throws IllegalTimeSlotException, ArithmeticException  {		
+
 		double sommaTemp=0;
 		double temp; 
 		int cont=0;
@@ -43,6 +45,7 @@ public class StatsImpl implements Stats {
 		catch(IllegalTimeSlotException e) {
 			throw new IllegalTimeSlotException();
 		}
+
 		catch(ArithmeticException a) {
 			throw new ArithmeticException();
 		}
@@ -123,6 +126,7 @@ public class StatsImpl implements Stats {
 	
 	public ArrayList<Double> serieTempMax(FilterImpl filtro, Citta citta) throws IllegalTimeSlotException, ArithmeticException {
 		ArrayList<Double> serieMassime=new ArrayList<Double>();
+
 		try {
 			for(int i=0; i<filtro.Ricerca(citta).size(); i++) {
 				serieMassime.add(filtro.Ricerca(citta).get(i).gettMax().getValore());
@@ -132,6 +136,7 @@ public class StatsImpl implements Stats {
 		catch(IllegalTimeSlotException e) {
 			throw new IllegalTimeSlotException();
 		}
+
 		catch(ArithmeticException a) {
 			throw new ArithmeticException();
 		}
@@ -149,20 +154,24 @@ public class StatsImpl implements Stats {
  */	
 	public double tempMinMedia(FilterImpl filtro, Citta citta) throws IllegalTimeSlotException, ArithmeticException {
 		double sommaTempMin=0;
+
 		double temp; 
 		int cont=0;
 	
 		try {
 			for(int i=0; i<filtro.Ricerca(citta).size(); i++) {
 				temp = filtro.Ricerca(citta).get(i).gettMin().getValore();
+
 				sommaTempMin += temp;
 				cont++;
 			}
 			return sommaTempMin/cont;
+
 		}
 		catch(IllegalTimeSlotException e) {
 			throw new IllegalTimeSlotException();
 		}
+
 		catch(ArithmeticException a) {
 			throw new ArithmeticException();
 		}
@@ -222,10 +231,12 @@ public class StatsImpl implements Stats {
 			}
 			varTempEff = num/cont-1;
 			return varTempEff;
+
 		}
 		catch(IllegalTimeSlotException e) {
 			throw new IllegalTimeSlotException();
 		}
+
 		catch(ArithmeticException a) {
 			throw new ArithmeticException();
 		}
@@ -279,6 +290,7 @@ public class StatsImpl implements Stats {
 		
 		try {
 			mediaUmidita = this.umiditaMedia(filtro, citta);
+
 			cont =0;
 			for(int i=0; i<filtro.Ricerca(citta).size(); i++) {
 				num += Math.pow((filtro.Ricerca(citta).get(i).getHumidity())-mediaUmidita, 2);
@@ -290,6 +302,7 @@ public class StatsImpl implements Stats {
 		catch(IllegalTimeSlotException e) {
 			throw new IllegalTimeSlotException();
 		}
+
 		catch(ArithmeticException a) {
 			throw new ArithmeticException();
 		}
@@ -350,10 +363,12 @@ public class StatsImpl implements Stats {
 			}
 			varTempMax = num/cont-1;
 			return varTempMax;
+
 		}
 		catch(IllegalTimeSlotException e) {
 			throw new IllegalTimeSlotException();
 		}
+
 		catch(ArithmeticException a) {
 			throw new ArithmeticException();
 		}
@@ -392,4 +407,3 @@ public class StatsImpl implements Stats {
 		return devstdUmidita;
 	}
 }
-

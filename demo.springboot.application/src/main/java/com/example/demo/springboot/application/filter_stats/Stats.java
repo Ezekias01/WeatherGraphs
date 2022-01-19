@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.springboot.application.model.Citta;
 import com.example.demo.springboot.application.exceptions.IllegalTimeSlotException;
+
 /**
  * L'interfaccia Stats prevede sei metodi astratti implementati in StatsImpl.
  * I suddetti metodi hanno il compito di calcolare le varie statistiche passando come unici attributi
@@ -44,3 +45,4 @@ public interface Stats {
 
 	
 }
+
