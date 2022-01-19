@@ -13,7 +13,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.springboot.application.model.*;
-import com.example.demo.springboot.application.exceptions.NotFoundObjectException;
+import com.example.demo.springboot.application.exceptions.NotFoundCityException;
+/**
+ * La classe GestoreImpl specifica i metodi descritti dall'interfaccia Gestore e funge
+ * da servizio che inizializza l'elenco delle città, effettua la ricerca delle citta ed 
+ * infine si occupa di fare il parsing del file precedentemente costruito tramite le chiamate
+ * API di OpenWeather.
+ * @author Ezekias Mastaki
+ * @author Andrea Pizzuto
+ *
+ */
 
 @Component
 @Qualifier("GestoreImpl")
@@ -24,14 +33,22 @@ public class GestoreImpl implements Gestore{
 		Elenco = new ArrayList<Citta>();
 		this.setList();
 	}
-	
+
+
+/**
+ * Il metodo setList legge il file e, tramite le sue righe, costruisce un contenuto risposta di tipo StringBuffer.
+ * Il contenuto della risposta viene trasfomato in un JSONArray e ciascuno dei suoi elementi viene 
+ * aggiunto all'elenco delle citta in seguito al parsing.
+ */
 	@Override
 	public void setList() {
 		JSONArray cityList;
 		try { 
-			String record;											//legge ogni riga
+
+			String record;											
 			StringBuffer contenutoRisposta = new StringBuffer();
-			BufferedReader LEGGI = new BufferedReader(new InputStreamReader(new FileInputStream("citta.txt"), "UTF-8")); 
+			BufferedReader LEGGI = new BufferedReader(new InputStreamReader(new FileInputStream("citta.json"), "UTF-8")); 
+
 			while((record=LEGGI.readLine())!=null) {
 				contenutoRisposta.append(record);
 			}
@@ -49,12 +66,23 @@ public class GestoreImpl implements Gestore{
 		catch(IOException e) {e.printStackTrace();}
 		catch(JSONException e) {e.printStackTrace();}		
 	}
-	
+/**
+ * Il metodo getElencoCitta restituisce l'elenco delle citta.
+ * @return elenco citta
+ */
 	@Override
 	public ArrayList<Citta> getElencoCitta() {
 		return Elenco;	
 	}
-
+/**
+ * Il metodo parseCitta esegue il parsing di un JSONObject.
+ * In questo caso, essendo il file un JSONArray di elementi che descrivono una citta,
+ * il metodo otterra' tutti quegli attributi necessari a costruirne una aderente al model
+ * per poi restirla.
+ * @param city di tipo JSONObject
+ * @throws JSONException
+ * @return Citta di tipo Citta
+ */
 	@Override
 	public Citta parseCitta(JSONObject city)  throws JSONException {
 		Citta Citta;
@@ -99,9 +127,16 @@ public class GestoreImpl implements Gestore{
 		catch(JSONException exception) {throw new JSONException("ERRORE PARSING JSON");}
 				
 	}
-	
+/**
+ *  Il metodo cercaCitta effettua la ricerca della città tramite nome.
+ *  Tramite l'eccezione NotFoundCityException gestiamo l'eventualita' in cui la citta
+ *  non venga trovata.
+ *  @param nome della citta
+ *  @throws NotFoundCityException
+ *  @return nome della citta corrispondente
+ */
 	@Override
-	public Citta cercaCitta(String nome) throws NotFoundObjectException {
+	public Citta cercaCitta(String nome) throws NotFoundCityException {
 		int temp1=0; 
 		boolean flag=false;
 		for(int x=0;x<Elenco.size();x++) { 
@@ -113,20 +148,34 @@ public class GestoreImpl implements Gestore{
 			return this.Elenco.get(temp1);
 		}
 		else {
-			throw new NotFoundObjectException(nome+" not found");
+			throw new NotFoundCityException(nome+" not found");
 		}
 		
 	}
-	
+/**
+ * 	Il metodo cercaCitta effettua la ricerca della città tramite Id.
+ *  Tramite l'eccezione NotFoundCityException gestiamo l'eventualità in cui la citta 
+ *  non venga trovata.
+ *  Il metodo non è stato adoperato, ma potrebbe essere utilizzato nel controller per un eventuale rotta 
+ *  che sfrutti l'id della città anziche' il nome.
+ *  @param id della citta
+ *  @throws NotFoundCityException
+ *  @return nome della citta corrispondente
+ */
 	@Override
-	public Citta cercaCitta(int id) throws NotFoundObjectException {
+	public Citta cercaCitta(int id) throws NotFoundCityException {
 		int temp=0; boolean flag=false; 
 		for(int z=0;z<Elenco.size();z++) { 
 			if(id==Elenco.get(z).getCityId()) { temp=z; flag=true;}
 						}
 		
-		if(flag) {return Elenco.get(temp);}
-		else {throw new  NotFoundObjectException("Id not found");}
+		if(flag) {
+			return Elenco.get(temp);
+		}
+		else {
+			throw new  NotFoundCityException("Id not found");
+
+		}
 		
 	}
 	
