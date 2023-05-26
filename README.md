@@ -257,5 +257,6 @@ Le varie rotte saranno utilizzabili tramite l’ausilio del http://localhost:808
 - Eclipse
 - Springboot
 ## Autori
-- Ezekias Mastaki
-- Andrea Pizzuto
+- Ezekias Wasingya Mastaki - [@Ezekias01](https://github.com/Ezekias01)
+- Andrea Pizzuto - [@Piz01](https://github.com/Piz01)
+
